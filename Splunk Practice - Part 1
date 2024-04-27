@@ -1,0 +1,33 @@
+✤ - Splunk Exploration - Investegating datasets
+
+While exploring the "Botsv3" dataset, I extracted valuable information from a large event list using various commands,
+allowing me to find specific information in a timely and efficient manner,
+and gaining an understanding of how this type of data is viewed in real world scenarios.
+
+
+1 ~ Event Search:
+   - I started by retrieving all events to gain clear view of the data at hand.
+https://imgur.com/gallery/Ueigmd4
+
+2 ~ Keyword Search:
+   - Using keywords relevant to my investigation, such as "Error" or "Failed" identifies events that could indicate potential security incidents.
+https://imgur.com/gallery/Qjx6wpn
+
+3 ~ Aggregating Data:
+   - Aggregating data based on different fields, such as source IP addresses ('src_ip') or event types, revealed the frequency of specific source IPs.
+Combining this with a keyword search could reduce the number of events searched through and make things smoother.
+https://imgur.com/gallery/XYQ6TzF
+
+4 ~ FIltering by tiime:
+   - Sorting by time allowed me to see which events happened within a 3 minute timeframe. Combining this with an IP + 
+failed login search could help me determine whether a user login from a specific IP has been unsuccessful multiple times, indicating the possibility of a password attack.
+https://imgur.com/gallery/IJXITps
+
+5 ~ Filtering with Regex:
+   - Using regular expressions, I applied filtering techniques to extract specific event patterns or characteristics from the dataset,
+allowing for more targeted analysis and uncovering insights such as the frequency of occurrences of specific field-value pairs within the dataset.
+https://imgur.com/gallery/J2rKRlB
+
+
+✫ As I progress in Splunk, I aim to effectively filter through extensive amounts of log data to accurately find the necessary information (without overlooking important details).
+Developing upon this skill will help me navigate datasets more effectively, leading to better decision making.
