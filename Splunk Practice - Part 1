@@ -1,4 +1,4 @@
-✤ - Splunk Exploration - Investegating datasets
+✤ - Splunk Exploration - investigating datasets
 
 While exploring the "Botsv3" dataset, I extracted valuable information from a large event list using various commands,
 allowing me to find specific information in a timely and efficient manner,
@@ -18,7 +18,7 @@ https://imgur.com/gallery/Qjx6wpn
 Combining this with a keyword search could reduce the number of events searched through and make things smoother.
 https://imgur.com/gallery/XYQ6TzF
 
-4 ~ FIltering by tiime:
+4 ~ Filtering by time:
    - Sorting by time allowed me to see which events happened within a 3 minute timeframe. Combining this with an IP + 
 failed login search could help me determine whether a user login from a specific IP has been unsuccessful multiple times, indicating the possibility of a password attack.
 https://imgur.com/gallery/IJXITps
