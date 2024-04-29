@@ -1,0 +1,46 @@
+Python - Sniffing & counting out any traces of IP Addresses
+
+With just a few lines of Python code, I tallied up a large list of randomly generated IP addresses,
+counting how many times each IP shows up, without the struggle of having to iterate through a file containing a billion different lines.
+Applying this code to a cyber log file could help identify patterns, with the possibility of discovering potential threats.
+
+Example use cases:
+- Counting the number of Failed Logins from 'IP'
+- Counting how many times a connection was made from 'IP'
+- Identifying which IPs consume the most resources
+
+Screenshots: 
+Script - https://imgur.com/gallery/GZJUQWE
+IP List - https://imgur.com/gallery/0IyP2qe
+
+
+Code:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ip_counts = []
+
+with open('IP_LIST.txt', 'r') as ips:
+    for line in ips:
+        ip = line.strip()
+        found = False
+
+        for ip_str in ip_counts:
+            if ip_str[0] == ip:
+                ip_str[1] += 1
+                found = True
+                break
+        
+        if not found:
+            ip_counts.append([ip, 1])
+            
+for ip_str in ip_counts:
+    print(f"{ip_str[0]}: {ip_str[1]}")
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This was just a short analysis of what I've learned from playing around with python so far, 
+integrating my ideas with real world cybersecurity scenarios. I love coding, and as I continue to improve,
+I'll strive to develop even better scripts, which I'll share on here and Linkedin as usual.
+If you spot any potential improvements in my code, please feel free to message me. I'll forever be open to new discussions,
+so come chat with me if you have the time! Thanks.
+
+
+#Cybersecurity !!!
