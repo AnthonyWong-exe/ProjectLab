@@ -35,12 +35,3 @@ with open('IP_LIST.txt', 'r') as ips:
 for ip_str in ip_counts:
     print(f"{ip_str[0]}: {ip_str[1]}")
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-This was just a short analysis of what I've learned from playing around with python so far, 
-integrating my ideas with real world cybersecurity scenarios. I love coding, and as I continue to improve,
-I'll strive to develop even better scripts, which I'll share on here and Linkedin as usual.
-If you spot any potential improvements in my code, please feel free to message me. I'll forever be open to new discussions,
-so come chat with me if you have the time! Thanks.
-
-
-#Cybersecurity !!!
