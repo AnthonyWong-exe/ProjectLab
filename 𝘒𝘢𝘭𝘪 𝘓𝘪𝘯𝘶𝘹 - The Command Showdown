@@ -1,0 +1,28 @@
+I thought I'd jot down some of the Linux commands that I've come across so far, analyze them, then go over my most favorite and least favorite command.
+I feel as if writing this out would help uncover some strengths and weaknesses that I'm not yet aware of.
+
+~~~ 
+ls, cp, mv, rm, mkdir, rmdir, cat, less, more, head, tail, grep, chmod, chown, chgrp, uname,
+top, ping, ifconfig, netstat, traceroute, wget, curl, kill, pkill, killall, apt, dpkg, 
+useradd, usermod, userdel, passwd, nmap, aircrack, metasploit, tar, gzip
+~~~
+
+
+Favorite: nmap
+- I love the idea of scanning multiple areas within a network with the goal of searching for open services, versions, and operating systems.
+It creates an interesting maze of opportunities that can lead to exploration and eventually satisfying discoveries.
+The amount of information returned is amazing and will definitely be useful for me whenever I finally try out pentesting. 
+Apparently, searching for a simple bug can sometimes be difficult and frustrating... but I'm ready for the challenge!! Come at me 😂
+
+Least Favorite: ping
+- Ping... Oh man, the PTSD is real. The ping command itself is pretty simple for me to understand,
+but using it to communicate with another machine is where I get confused. A couple of weeks ago, 
+I attempted to set up a Windows VM honeypot with Kali as the attacker machine. For some reason, 
+whenever I tried to do a communication test to see if they could hear each other, it just kept returning errors.
+I spent hours researching and watching YouTube videos, but nothing worked for me. It sucks that I wasn't able to get it working, 
+but I'll definitely try again in the future. Maybe this is the same pain pentesters & bug bounty hunters feel..
+
+^^^
+While writing this, I realized that I may have skipped important details in my research and didn’t take enough time to fully understand what I was learning. 
+That’s due to my tendency to skip the tutorial process and dive straight into the action. I know that jumping in and trying to figure things out on my own can be fun, 
+but if I had been a bit more patient, I probably would have solved the issue much sooner.
