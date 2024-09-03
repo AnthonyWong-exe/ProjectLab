@@ -15,7 +15,7 @@ IP List - https://imgur.com/a/z70Bvzt
 
 
 Code:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ip_counts = []
 
 with open('IP_LIST.txt', 'r') as ips:
@@ -34,4 +34,4 @@ with open('IP_LIST.txt', 'r') as ips:
             
 for ip_str in ip_counts:
     print(f"{ip_str[0]}: {ip_str[1]}")
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
