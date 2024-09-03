@@ -101,6 +101,3 @@ user_id = "shere"
 computer_id = "comp1"
 password_manager(user_id, computer_id)
 --
-
-
-Super fun.
