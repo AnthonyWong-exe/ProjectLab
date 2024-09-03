@@ -1,0 +1,106 @@
+Because I love coding so much, I decided to use Python in my first official project.
+I came up with an interesting scenario, describing the playbook of a security breach
+and how a security analyst would go about mitigating the threat.
+
+The goal was to create a script that simulates a two step authentication process,
+complete with logging, delay mechanisms, and security alerts.
+
+--
+Scenario:
+
+On July 5th, 1557, Shere Khan, an IT security analyst at BobMarley's Tacos LLC, 
+noticed that all computer passwords stored in a storage room had been breached. 
+All passwords contained 'SR5' and were 9 characters long. Shere discovered that
+the attacker had caught onto this password trend and attempted to break into 
+computers in other parts of the building. Fortunately, each room had its own
+unique password based on specific criteria. Shere wants to mitigate the threat
+by implementing a system where two passwords must be entered for each computer:
+first, one unique to the person logging in, and then one unique to the computer
+being used. If multiple failed password attempts occur at once, the system will
+log these attempts in the security log file and alert every security analyst.
+
+Criteria: 
+@ *First password must match a password from the user password folder.
+If there are more than 3 failed attempts, log this activity, lock the user account,
+and prevent any further password attempts from this computer or person until reviewed by a security analyst.*
+
+@ *After the first password is correctly entered, there must be a 10-second delay
+before entering the second password. Users should be informed about this delay.
+If anything is entered before the delay ends, prevent any further password attempts from this device.
+The second password must match a password from the computer password folder.
+If there are more than 3 failed attempts, log this activity, lock the computer,
+and prevent any further password attempts from this device until reviewed by a security analyst..*
+--
+
+--
+Code: 
+
+
+import time
+
+#Dictionary for stored passwords
+user_passwords = {"shere": "shere123", "alice": "alice456", "bob": "bob789"}
+computer_passwords = {"comp1": "SR51234a1", "comp2": "SR51234b2", "comp3": "SR51234c3"}
+
+#Log to keep track of failed attempts
+security_log = []
+
+def log_attempt(attempt_detail):
+    security_log.append(attempt_detail)
+    print(f"Security Log Updated: {attempt_detail}")
+
+def authenticate_user(user_id, password):
+    if user_passwords.get(user_id) == password:
+        return True
+    return False
+
+def authenticate_computer(computer_id, password):
+    if computer_passwords.get(computer_id) == password:
+        return True
+    return False
+
+def password_manager(user_id, computer_id):
+    user_attempts = 0
+    computer_attempts = 0
+    
+    #First password entry - User
+    while user_attempts < 3:
+        user_password = input("Enter your password: ")
+        if authenticate_user(user_id, user_password):
+            print("First password accepted. Please wait 10 seconds before entering the next password.")
+            time.sleep(10)  # 10-second delay
+            break
+        else:
+            user_attempts += 1
+            log_attempt(f"Failed user login attempt {user_attempts} by {user_id}")
+            if user_attempts == 3:
+                print("Too many failed attempts. User account locked.")
+                log_attempt(f"User account {user_id} locked due to failed login attempts.")
+                return
+    
+    #Second password entry - Computer
+    while computer_attempts < 3:
+        computer_password = input("Enter the computer password: ")
+        if authenticate_computer(computer_id, computer_password):
+            print("Access granted.")
+            return
+        else:
+            computer_attempts += 1
+            log_attempt(f"Failed computer login attempt {computer_attempts} on {computer_id}")
+            if computer_attempts == 3:
+                print("Too many failed attempts. Computer locked.")
+                log_attempt(f"Computer {computer_id} locked due to failed login attempts.")
+                return
+
+    #Alerts security analysts if 3+ failed attempts
+    if user_attempts == 3 or computer_attempts == 3:
+        print("Alerting Security Analysts...")
+        log_attempt("Security Analysts alerted due to suspicious activity.")
+
+user_id = "shere"
+computer_id = "comp1"
+password_manager(user_id, computer_id)
+--
+
+
+Super fun.
