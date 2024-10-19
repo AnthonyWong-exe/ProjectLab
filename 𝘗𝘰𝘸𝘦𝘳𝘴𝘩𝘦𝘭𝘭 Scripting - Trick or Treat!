@@ -1,0 +1,60 @@
+With the help of YouTube videos and Microsoft training modules, I was able to grasp the fundamentals of PowerShell ISE to create a simple script. 
+Having Python knowledge definitely made it easier for me to catch on, although the placement of parentheses and curly brackets was completely new to me.
+--
+
+The goal was to simulate a trick or treating game where a user can collect candy from different house and the script keeps track of the total amount of candy left.
+
+--
+Script:
+
+
+$TotalCandy = 500
+$House_A_Candy = 123
+$House_B_Candy = 165
+$House_C_Candy = 212
+
+function CheckCandy {
+    if ($TotalCandy -le 0) {
+        $TotalCandy = 0
+        Write-Host "All the candy has been collected! No candy left."
+    } else {
+        Write-Host "You have $TotalCandy pieces of candy left."
+    }
+}
+
+while ($TotalCandy -gt 0) {
+    $SelectedHouse = Read-Host -Prompt "Pick a house to trick or treat! (A, B, or C)"
+
+    if ($SelectedHouse -eq "A") {
+        if ($TotalCandy -ge $House_A_Candy) {
+            Write-Host "You have chosen House A! It had $House_A_Candy pieces of candy."
+            $TotalCandy -= $House_A_Candy
+        } else {
+            Write-Host "House A has more candy than what you can collect. You collected the remaining $TotalCandy pieces."
+            $TotalCandy = 0
+        }
+    } elseif ($SelectedHouse -eq "B") {
+        if ($TotalCandy -ge $House_B_Candy) {
+            Write-Host "You have chosen House B! It had $House_B_Candy pieces of candy."
+            $TotalCandy -= $House_B_Candy
+        } else {
+            Write-Host "House B has more candy than what you can collect. You collected the remaining $TotalCandy pieces."
+            $TotalCandy = 0
+        }
+    } elseif ($SelectedHouse -eq "C") {
+        if ($TotalCandy -ge $House_C_Candy) {
+            Write-Host "You have chosen House C! It had $House_C_Candy pieces of candy."
+            $TotalCandy -= $House_C_Candy
+        } else {
+            Write-Host "House C has more candy than what you can collect. You collected the remaining $TotalCandy pieces."
+            $TotalCandy = 0
+        }
+    } else {
+        Write-Host "Invalid choice! Please pick either A, B, or C."
+    }
+
+    CheckCandy
+}
+
+Write-Host "All candy has been collected. Trick or Treat time is over!"
+--
